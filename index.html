@@ -1,113 +1,138 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AdsPlayzZz Gaming Live</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>AdsPlayzZz | Gaming Live</title>
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;background:#090909;color:white;
- font-family:Arial,sans-serif;padding:18px;
-}
-header{color:#ff3030;font-size:27px;font-weight:bold}
-.sub{color:#aaa;margin:8px 0 22px}
-.card{
- background:#191919;border:1px solid #383838;
- border-radius:15px;padding:17px;margin:15px 0;
-}
-h3{color:#ff3939;margin-top:0}
-.preview{
- height:190px;background:#252525;
- border:2px dashed #ff3333;border-radius:12px;
- display:flex;align-items:center;justify-content:center;
- color:#aaa;text-align:center;
-}
-button{
- background:#e52525;color:white;border:0;
- padding:13px;border-radius:9px;font-weight:bold;
- width:100%;margin-top:10px;
-}
-input,select{
- width:100%;padding:12px;margin:9px 0;
- background:#292929;color:white;border:1px solid #555;
- border-radius:8px;
-}
-small{color:#aaa}
+:root{--red:#ff2638;--bg:#080808;--panel:#141414;--muted:#aaa;--line:#292929}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}
+header{position:sticky;top:0;z-index:10;background:#0b0b0bf2;border-bottom:1px solid var(--line);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:900;font-size:22px;letter-spacing:.4px}.brand span{color:var(--red)}
+nav{display:flex;gap:18px;align-items:center}nav a{color:#ddd;text-decoration:none;font-size:14px}
+button,.btn{border:0;border-radius:9px;padding:11px 16px;background:var(--red);color:white;font-weight:700;cursor:pointer}
+button.secondary{background:#252525;border:1px solid #444}
+.hero{padding:64px 5% 48px;background:radial-gradient(ellipse at 75% 20%,#541018 0,transparent 45%),linear-gradient(120deg,#171010,#080808 65%)}
+.tag{display:inline-block;color:#ff9aa3;border:1px solid #77313a;border-radius:99px;padding:7px 12px;font-size:12px}
+h1{font-size:clamp(36px,7vw,66px);line-height:1.02;margin:20px 0 14px;max-width:720px}
+h1 span{color:var(--red)}.hero p{color:#c5c5c5;max-width:620px;line-height:1.65}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.wrap{padding:34px 5%;max-width:1300px;margin:auto}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:18px}
+h2{margin:0 0 8px;font-size:25px}.sub{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px}
+.preview{height:190px;border-radius:12px;background:linear-gradient(135deg,#310b11,#161616 60%,#4a1018);display:grid;place-items:center;font-size:46px;position:relative;margin-bottom:14px}
+.live{position:absolute;top:12px;left:12px;background:#e21c2b;padding:5px 9px;border-radius:5px;font-size:11px;font-weight:bold}
+.card h3{margin:8px 0}.card p{color:var(--muted);font-size:13px;line-height:1.5}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.feature{background:#111;border:1px solid var(--line);border-radius:12px;padding:16px}.feature b{display:block;margin:8px 0}.feature small{color:var(--muted);line-height:1.45}
+.icon{font-size:25px}
+.tools{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+.screen{min-height:250px;background:#050505;border:1px solid #333;border-radius:13px;display:grid;place-items:center;text-align:center;color:#aaa;padding:22px}
+input,select{background:#090909;color:white;border:1px solid #444;border-radius:8px;padding:11px;width:100%;margin:7px 0 13px}
+label{font-size:13px;color:#ccc}.chatlog{height:135px;overflow:auto;background:#090909;border:1px solid #333;border-radius:8px;padding:10px;color:#ccc;font-size:13px;margin-bottom:8px}
+footer{border-top:1px solid var(--line);padding:25px 5%;color:#888;text-align:center;font-size:13px}
+.pill{display:inline-block;background:#251014;color:#ff9aa3;border-radius:99px;padding:5px 9px;font-size:11px}
+@media(max-width:850px){.grid{grid-template-columns:1fr 1fr}.features{grid-template-columns:1fr 1fr}.tools{grid-template-columns:1fr}nav{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero{padding-top:45px}.wrap{padding-top:27px}.brand{font-size:19px}}
 </style>
 </head>
 <body>
-<header>🎮 AdsPlayzZz</header>
-<div class="sub">PREMIUM GAMING LIVE STUDIO</div>
+<header>
+  <div class="brand">ADS<span>PLAY</span>ZZZ</div>
+  <nav><a href="#live">Live</a><a href="#features">Features</a><a href="#studio">Studio</a><a href="#vip">VIP</a></nav>
+  <button class="secondary" id="langBtn">हिंदी</button>
+</header>
 
-<div class="card">
-<h3>LIVE PREVIEW</h3>
-<div class="preview" id="preview">
-Game Preview<br>Camera & Overlay
-</div>
-<button onclick="alert('Streaming integration is not connected yet.')">
-START LIVE
-</button>
-</div>
+<section class="hero">
+  <span class="tag" id="tag">YOUR GAMING. YOUR STAGE.</span>
+  <h1 id="heroTitle">PLAY HARD.<br><span>STREAM LOUD.</span></h1>
+  <p id="heroText">Welcome to AdsPlayzZz — your gaming streaming hub for BGMI moments, live sessions and an amazing community.</p>
+  <div class="actions"><a class="btn" href="#live" style="text-decoration:none" id="watchBtn">Explore Live</a><a class="btn secondary" href="#studio" style="text-decoration:none" id="studioBtn">Open Creator Studio</a></div>
+</section>
 
-<div class="card">
-<h3>CAMERA SETTINGS</h3>
-<select>
-<option>Camera 1</option>
-<option>Camera 2</option>
-<option>USB Camera</option>
-</select>
-<button onclick="alert('Camera permission integration needed')">
-CONNECT CAMERA
-</button>
-</div>
+<main>
+<section class="wrap" id="live">
+ <div class="section-head"><div><h2 id="liveTitle">Featured Streams</h2><div class="sub" id="liveSub">Discover gaming sessions and highlights</div></div><span class="pill">DEMO PREVIEW</span></div>
+ <div class="grid">
+  <article class="card"><div class="preview"><span class="live">● LIVE DEMO</span>🎮</div><h3>BGMI Battle Arena</h3><p>Featured stream preview · 1080p / 60 FPS target</p><button onclick="demoAlert()">Watch stream</button></article>
+  <article class="card"><div class="preview">⚡</div><h3>Gaming Shorts</h3><p>Quick highlights, clutch moments and creator clips.</p><button class="secondary" onclick="demoAlert()">View shorts</button></article>
+  <article class="card"><div class="preview">🏆</div><h3>Community Highlights</h3><p>Top plays and memorable moments from the community.</p><button class="secondary" onclick="demoAlert()">Explore</button></article>
+ </div>
+</section>
 
-<div class="card">
-<h3>GAMEPLAY ZOOM</h3>
-<label>Zoom Level</label>
-<input type="range" min="1" max="5" value="1">
-<small>Manual Zoom Control Prototype</small>
-</div>
+<section class="wrap" id="features">
+ <div class="section-head"><div><h2 id="featuresTitle">Powerful Features</h2><div class="sub">The 15 features listed in your project README</div></div></div>
+ <div class="features" id="featureGrid"></div>
+</section>
 
-<div class="card">
-<h3>STREAM SETTINGS</h3>
-<select>
-<option>1080p</option>
-<option>720p</option>
-<option>480p</option>
-</select>
-<select>
-<option>60 FPS</option>
-<option>30 FPS</option>
-</select>
-</div>
+<section class="wrap" id="studio">
+ <div class="section-head"><div><h2 id="studioTitle">Creator Studio</h2><div class="sub">Interactive front-end preview — connect a streaming backend to go live</div></div><span class="pill">LOCAL DEMO</span></div>
+ <div class="tools">
+  <div class="card">
+   <h3>🎥 Stream controls</h3>
+   <div class="screen" id="streamScreen"><div><div style="font-size:42px">📹</div><b>Stream preview area</b><p>Camera / DSLR / USB capture integration required</p></div></div>
+   <label>Stream title</label><input id="streamName" value="My BGMI Live Stream">
+   <label>Video quality</label><select><option>1080p · 60 FPS (target)</option><option>720p · 60 FPS</option><option>480p · 30 FPS</option></select>
+   <label>Zoom</label><input type="range" min="1" max="5" value="1" oninput="document.getElementById('zoomVal').textContent=this.value+'x'"><small>Zoom: <b id="zoomVal">1x</b> (visual demo)</small>
+   <div class="actions"><button onclick="startDemo()">Start demo</button><button class="secondary" onclick="stopDemo()">Stop</button></div>
+  </div>
+  <div class="card">
+   <h3>💬 Live chat preview</h3><div class="chatlog" id="chatlog"><div>System: Welcome to AdsPlayzZz chat demo.</div><div>Player01: OP gameplay 🔥</div></div>
+   <label>Send a chat message</label><input id="chatInput" placeholder="Type a message..."><button onclick="sendChat()">Send message</button>
+   <hr style="border:0;border-top:1px solid #333;margin:22px 0">
+   <h3>🔔 Subscriber alerts</h3><p class="sub">Preview an on-screen alert.</p><button class="secondary" onclick="alert('🎉 Demo alert: New subscriber!')">Test subscriber alert</button>
+  </div>
+ </div>
+</section>
 
-<div class="card">
-<h3>RECORDING</h3>
-<button onclick="alert('Recording feature needs Android integration')">
-SAVE RECORDING
-</button>
-</div>
+<section class="wrap" id="vip">
+ <div class="card" style="background:linear-gradient(110deg,#260b10,#141414)">
+  <span class="pill">VIP MEMBERSHIP</span><h2 style="margin-top:12px">Support the creators. Join the squad.</h2>
+  <p class="sub">VIP plans and UPI checkout can be enabled after secure payment integration.</p>
+  <button onclick="alert('VIP checkout is a demo. Add a verified payment provider before accepting payments.')">Explore VIP</button>
+ </div>
+</section>
+</main>
+<footer>© 2026 AdsPlayzZz · Gaming Streaming Platform · Demo website<br><br>Live video, accounts, chat moderation, admin tools and payments require secure backend services.</footer>
 
-<div class="card">
-<h3>MEMBERSHIP</h3>
-<p>Monthly VIP - ₹99</p>
-<p>Yearly VIP - ₹500</p>
-<button onclick="alert('Payment gateway not connected yet')">
-VIP MEMBERSHIP
-</button>
-</div>
-
-<div class="card">
-<h3>OVERLAY SETTINGS</h3>
-<label>Right Side: Chat</label>
-<label>Left Side: Super Chat</label>
-<label>Top: New Subscriber Alert</label>
-</div>
-
-<p style="text-align:center;color:#777">
-AdsPlayzZz © 2026
-</p>
+<script>
+const features=[
+["📺","1080p Live Streaming","High-resolution stream option (backend required)"],
+["🎞️","60 FPS","Smooth frame-rate target"],
+["🎮","BGMI Shorts Live","Short-form gaming content"],
+["📷","USB Webcam Support","Capture-device integration required"],
+["📸","DSLR Camera Support","Camera capture integration required"],
+["🔍","Manual and Auto Zoom","Zoom controls preview"],
+["🎨","Custom Overlay Editor","Overlay editor can be added"],
+["💬","Live Chat","Chat interface preview"],
+["🔔","Subscriber Alerts","Alert preview"],
+["⏺️","Local Recording","Browser/device recording integration required"],
+["👑","VIP Membership","Membership plans"],
+["💳","UPI Payment","Secure payment gateway required"],
+["🛠️","Admin Dashboard","Protected admin panel required"],
+["🌐","Hindi and English","Language toggle included"],
+["🌑","Black and Red Theme","Gaming theme included"]
+];
+document.getElementById('featureGrid').innerHTML=features.map(f=>`<div class="feature"><div class="icon">${f[0]}</div><b>${f[1]}</b><small>${f[2]}</small></div>`).join('');
+let hindi=false;
+document.getElementById('langBtn').onclick=()=>{
+ hindi=!hindi;
+ document.getElementById('langBtn').textContent=hindi?'English':'हिंदी';
+ document.getElementById('tag').textContent=hindi?'आपका गेमिंग मंच':'YOUR GAMING. YOUR STAGE.';
+ document.getElementById('heroTitle').innerHTML=hindi?'खेलो जमकर।<br><span>स्ट्रीम करो!</span>':'PLAY HARD.<br><span>STREAM LOUD.</span>';
+ document.getElementById('heroText').textContent=hindi?'AdsPlayzZz में आपका स्वागत है — BGMI, लाइव गेमिंग और शानदार कम्युनिटी का मंच।':'Welcome to AdsPlayzZz — your gaming streaming hub for BGMI moments, live sessions and an amazing community.';
+ document.getElementById('watchBtn').textContent=hindi?'लाइव देखें':'Explore Live';
+ document.getElementById('studioBtn').textContent=hindi?'क्रिएटर स्टूडियो':'Open Creator Studio';
+ document.getElementById('liveTitle').textContent=hindi?'फीचर्ड स्ट्रीम':'Featured Streams';
+ document.getElementById('featuresTitle').textContent=hindi?'शानदार फीचर्स':'Powerful Features';
+ document.getElementById('studioTitle').textContent=hindi?'क्रिएटर स्टूडियो':'Creator Studio';
+};
+function demoAlert(){alert('This is a front-end preview. Connect a real streaming service to enable live video.')}
+function startDemo(){let n=document.getElementById('streamName').value||'My stream';document.getElementById('streamScreen').innerHTML='<div><div style="font-size:42px">🔴</div><b>Demo started</b><p>'+n.replace(/[<>]/g,'')+'</p><small>Not broadcasting to the internet</small></div>'}
+function stopDemo(){document.getElementById('streamScreen').innerHTML='<div><div style="font-size:42px">📹</div><b>Stream preview area</b><p>Camera / DSLR / USB capture integration required</p></div>'}
+function sendChat(){let i=document.getElementById('chatInput'),v=i.value.trim();if(!v)return;let d=document.createElement('div');d.textContent='You: '+v;document.getElementById('chatlog').appendChild(d);i.value='';document.getElementById('chatlog').scrollTop=9999}
+</script>
 </body>
 </html>
