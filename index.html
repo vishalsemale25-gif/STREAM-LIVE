@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdsPlayzZz Gaming Live</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#090909;color:white;
+ font-family:Arial,sans-serif;padding:18px;
+}
+header{color:#ff3030;font-size:27px;font-weight:bold}
+.sub{color:#aaa;margin:8px 0 22px}
+.card{
+ background:#191919;border:1px solid #383838;
+ border-radius:15px;padding:17px;margin:15px 0;
+}
+h3{color:#ff3939;margin-top:0}
+.preview{
+ height:190px;background:#252525;
+ border:2px dashed #ff3333;border-radius:12px;
+ display:flex;align-items:center;justify-content:center;
+ color:#aaa;text-align:center;
+}
+button{
+ background:#e52525;color:white;border:0;
+ padding:13px;border-radius:9px;font-weight:bold;
+ width:100%;margin-top:10px;
+}
+input,select{
+ width:100%;padding:12px;margin:9px 0;
+ background:#292929;color:white;border:1px solid #555;
+ border-radius:8px;
+}
+small{color:#aaa}
+</style>
+</head>
+<body>
+<header>🎮 AdsPlayzZz</header>
+<div class="sub">PREMIUM GAMING LIVE STUDIO</div>
+
+<div class="card">
+<h3>LIVE PREVIEW</h3>
+<div class="preview" id="preview">
+Game Preview<br>Camera & Overlay
+</div>
+<button onclick="alert('Streaming integration is not connected yet.')">
+START LIVE
+</button>
+</div>
+
+<div class="card">
+<h3>CAMERA SETTINGS</h3>
+<select>
+<option>Camera 1</option>
+<option>Camera 2</option>
+<option>USB Camera</option>
+</select>
+<button onclick="alert('Camera permission integration needed')">
+CONNECT CAMERA
+</button>
+</div>
+
+<div class="card">
+<h3>GAMEPLAY ZOOM</h3>
+<label>Zoom Level</label>
+<input type="range" min="1" max="5" value="1">
+<small>Manual Zoom Control Prototype</small>
+</div>
+
+<div class="card">
+<h3>STREAM SETTINGS</h3>
+<select>
+<option>1080p</option>
+<option>720p</option>
+<option>480p</option>
+</select>
+<select>
+<option>60 FPS</option>
+<option>30 FPS</option>
+</select>
+</div>
+
+<div class="card">
+<h3>RECORDING</h3>
+<button onclick="alert('Recording feature needs Android integration')">
+SAVE RECORDING
+</button>
+</div>
+
+<div class="card">
+<h3>MEMBERSHIP</h3>
+<p>Monthly VIP - ₹99</p>
+<p>Yearly VIP - ₹500</p>
+<button onclick="alert('Payment gateway not connected yet')">
+VIP MEMBERSHIP
+</button>
+</div>
+
+<div class="card">
+<h3>OVERLAY SETTINGS</h3>
+<label>Right Side: Chat</label>
+<label>Left Side: Super Chat</label>
+<label>Top: New Subscriber Alert</label>
+</div>
+
+<p style="text-align:center;color:#777">
+AdsPlayzZz © 2026
+</p>
+</body>
+</html>
